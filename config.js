@@ -1,3 +1,5 @@
+
+
 var config = {
     style: 'mapbox://styles/xliuxliu/ckihdylnl61rv19p9dkqxsf01',
     accessToken: 'pk.eyJ1IjoieGxpdXhsaXUiLCJhIjoiY2tnZ2Zpd3piMHYycTJ5cGl4czZleXZpayJ9.5egPi5UdGMf6Kczfj47ahg',
@@ -19,46 +21,39 @@ var config = {
             bearing: 0
             },
         onChapterEnter: [
-            {
-              layer:"china_basemap_gdp",
-              opacity:1
-            },
-            {
-              layer:"selected-villages",
-              opacity:0
-            },
-            {
-              layer:"selected-villages_label",
-              opacity:0
-            },
-            {
-              layer:"selected-villages-heritage",
-              opacity:0
-            },
-            {
-              layer:"selected-villages-beau",
-              opacity:0
-            },
-            {
-              layer:"selected-villages-poverty",
-              opacity:0
-            },
-            {
-              layer:"nearby-all",
-              opacity:0
-            },
-            {
-              layer:"nearby-school",
-              opacity:0
-            },
-            {
-              layer:"nearby-hospital",
-              opacity:0
-            },
-            {
-              layer:"nearby-park",
-              opacity:0
-            }
+            {layer:"2020_E_Village_label",opacity:1},
+            {layer:"nearby-all_label",opacity:1},
+            {layer:"selected-nearby_label",opacity:1},
+            {layer:"selected-nearby",opacity:1},
+            {layer:"nearby-all",opacity:1},
+            {layer:"village_r_1m",opacity:0.2},
+            {layer:"selected-village_r_1m",opacity:0.2},
+
+            {layer:"2020_E_Village",opacity:0},
+            {layer:"retail_density",opacity:0},
+            {layer:"school_density",opacity:0},
+            {layer:"park_density",opacity:0},
+            {layer:"hospital_density",opacity:0},
+
+            {layer:"nearby-taobao",opacity:0},
+            {layer:"nearby-clinic",opacity:0},
+            {layer:"nearby-retail",opacity:0},
+            {layer:"nearby-hospital",opacity:0},
+            {layer:"nearby-factory",opacity:0},
+            {layer:"nearby-school",opacity:0},
+            {layer:"nearby-park",opacity:0},
+
+            {layer:"selected-villages",opacity:0},
+            {layer:"selected-villages-poverty",opacity:0},
+            {layer:"selected-villages-heritage",opacity:0},
+            {layer:"selected-villages-beau",opacity:0},
+            {layer:"selected-villages-school",opacity:0},
+            {layer:"selected-villages-park",opacity:0},
+            {layer:"selected-villages-hospital",opacity:0},
+            {layer:"selected-villages-retail",opacity:0},
+            {layer:"selected-villages-clinic",opacity:0},
+            {layer:"selected-villages-plaza",opacity:0},
+            {layer:"selected-villages-mobile",opacity:0},
           ],
         onChapterExit: [
 
@@ -76,10 +71,7 @@ var config = {
             bearing: 0
             },
         onChapterEnter: [
-            {
-              layer:"china_basemap_gdp",
-              opacity:1
-            }
+          {layer:"2020_E_Village",opacity:0},
           ],
         onChapterExit: [
           ]
@@ -97,16 +89,9 @@ var config = {
             bearing: 0
             },
         onChapterEnter: [
-          {
-            layer:"china_basemap_gdp",
-            opacity:0.8
-          }
+          {layer:"2020_E_Village",opacity:0.2},
           ],
         onChapterExit: [
-          {
-            layer:"china_basemap_gdp",
-            opacity:0.5
-          }
           ]
       },
       {
@@ -122,10 +107,7 @@ var config = {
             bearing: 0
             },
         onChapterEnter: [
-          {
-            layer:"china_basemap_gdp",
-            opacity:0.8
-          }
+          {layer:"2020_E_Village",opacity:0.5},
           ],
         onChapterExit: [
           ]
@@ -141,20 +123,91 @@ var config = {
             bearing: 0
             },
         onChapterEnter: [
-          {
-            layer:"china_basemap_gdp",
-            opacity:1
-          },
-            {
-              layer:"2020_E_Village",
-              opacity:1
-            }
+          {layer:"2020_E_Village",opacity:1},
+          {layer:"china_basemap_gdp",opacity:1},
+          {layer:"school_density",opacity:0}
           ],
         onChapterExit: [
+            {layer:"2020_E_Village",opacity:0},
           ]
       },
       {
         id: 'Map_2',
+        title: "For all 5400+ village,  we research the nearby public assets. Density of the distribution of schools.",
+        description:'',
+        // image: 'images/export-map.jpg',//change to text?
+        location: {
+            center: [105, 37.9],
+            zoom: 3.61,
+            pitch: 0,
+            bearing: 0
+            },
+        onChapterEnter: [
+          {layer:"china_basemap_gdp",opacity:0},
+          {layer:"school_density",opacity:1},
+          {layer:"hospital_density",opacity:0}
+
+          ],
+        onChapterExit: [
+          {layer:"school_density",opacity:0},
+          ]
+      },
+      {
+        id: 'Map_3',
+        title: "Density of the distribution of hospitals",
+        description:'',
+        location: {
+            center: [105, 37.9],
+            zoom: 3.61,
+            pitch: 0,
+            bearing: 0
+            },
+        onChapterEnter: [
+          {layer:"hospital_density",opacity:1},
+          {layer:"park_density",opacity:0}
+          ],
+        onChapterExit: [
+          {layer:"hospital_density",opacity:0},
+          ]
+      },
+      {
+        id: 'Map_4',
+        title: "Density of the distribution of Parks",
+        description:'',
+        location: {
+            center: [105, 37.9],
+            zoom: 3.61,
+            pitch: 0,
+            bearing: 0
+            },
+        onChapterEnter: [
+          {layer:"park_density",opacity:1},
+          {layer:"retail_density",opacity:0}
+          ],
+        onChapterExit: [
+          {layer:"park_density",opacity:0}
+          ]
+      },
+      {
+        id: 'Map_5',
+        title: "Density of the distribution of retails",
+        description:'',
+        location: {
+            center: [105, 37.9],
+            zoom: 3.61,
+            pitch: 0,
+            bearing: 0
+            },
+        onChapterEnter: [
+          {layer:"retail_density",opacity:1},
+          {layer:"selected-villages",opacity:0},
+          ],
+        onChapterExit: [
+          {layer:"retail_density",opacity:0}
+          ]
+        },
+      {
+        id: 'Map_6',
         title: "Among all villages, we zoom into 49 Villages.",
         description:'',
         // image: 'images/export-map.jpg',//change to text?
@@ -165,55 +218,98 @@ var config = {
             bearing: 0
             },
         onChapterEnter: [
-            {
-              layer:"selected-villages",
-              opacity:1
+            {layer:"selected-villages",opacity:1},
+            {layer:"2020_E_Village",opacity:0},{
+              layer:"selected-villages-heritage",
+              opacity:0
+            }
+          ],
+        onChapterExit: [
+          {layer:"selected-villages",opacity:0}
+          ]
+      },
+      {
+        id: 'Map_7',
+        title: "Some are villages that produce cultural and heritage products.",
+        description:'',
+        // image: 'images/export-map.jpg',//change to text?
+        location: {
+            center: [108.307, 31.447],
+            zoom: 5,
+            pitch: 0,
+            bearing: 0
             },
+        onChapterEnter: [
             {
-              layer:"selected-villages_label",
+              layer:"selected-villages-heritage",
               opacity:1
+            },{
+              layer:"selected-villages-beau",
+              opacity:0
             }
           ],
         onChapterExit: [
           {
-            layer:"selected-villages",
-            opacity:0
-          },
-          {
-            layer:"selected-villages_label",
+            layer:"selected-villages-heritage",
             opacity:0
           }
           ]
         },
         {
-          id: 'Map_3',
-          title: "Some are villages that produce cultural and heritage products.",
+          id: 'Map_8',
+          title: "Some are villages given the name of 'The most beautiful Taobao Village' by Alibaba Group.",
           description:'',
           // image: 'images/export-map.jpg',//change to text?
           location: {
-              center: [105, 37.9],
-              zoom: 3.61,
+              center: [108.307, 31.447],
+              zoom: 5,
               pitch: 0,
               bearing: 0
               },
           onChapterEnter: [
               {
-                layer:"selected-villages-heritage",
+                layer:"selected-villages-beau",
                 opacity:1
               }
             ],
           onChapterExit: [
             {
-              layer:"sselected-villages-heritage",
+              layer:"selected-villages-beau",
+              opacity:0
+            }
+            ]
+        },
+        {
+          id: 'Map_9',
+          title: "Some are villages located in the at-risk area.",
+          description:'',
+          // image: 'images/export-map.jpg',//change to text?
+          location: {
+              center: [108.307, 31.447],
+              zoom: 5,
+              pitch: 0,
+              bearing: 0
+              },
+          onChapterEnter: [
+              {
+                layer:"selected-villages-poverty",
+                opacity:1
+              },{
+                layer:"selected-villages-poverty",
+                opacity:0
+              }
+            ],
+          onChapterExit: [
+            {
+              layer:"selected-villages-poverty",
               opacity:0
             }
             ]
           },
           {
-            id: 'Map_4',
-            title: "Some are villages given the name of 'The most beautiful Taobao Village' by Alibaba Group.",
+            id: 'Map_10',
+            title: "Density of the distribution of hospitals in these 49 villages",
             description:'',
-            // image: 'images/export-map.jpg',//change to text?
             location: {
                 center: [105, 37.9],
                 zoom: 3.61,
@@ -221,170 +317,106 @@ var config = {
                 bearing: 0
                 },
             onChapterEnter: [
-                {
-                  layer:"selected-villages-beau",
-                  opacity:1
-                }
+              {layer:"selected-villages-hospital",opacity:1},
+              {layer:"selected-villages-school",opacity:0},
               ],
             onChapterExit: [
-              {
-                layer:"selected-villages-beau",
-                opacity:0
-              }
+              {layer:"selected-villages-hospital",opacity:0},
               ]
-            },
-            {
-              id: 'Map_5',
-              title: "Some are villages located in the at-risk area.",
-              description:'',
-              // image: 'images/export-map.jpg',//change to text?
-              location: {
-                  center: [105, 37.9],
-                  zoom: 3.61,
-                  pitch: 0,
-                  bearing: 0
-                  },
-              onChapterEnter: [
-                  {
-                    layer:"selected-villages-poverty",
-                    opacity:1
-                  }
-                ],
-              onChapterExit: [
-                {
-                  layer:"selected-villages-poverty",
-                  opacity:0
-                }
-                ]
-              },
-              {
-                id: 'Map_6',
-                title: "For each village,  we research the nearby public assets.",
-                description:'',
-                // image: 'images/export-map.jpg',//change to text?
-                location: {
-                    center: [105, 37.9],
-                    zoom: 3.61,
-                    pitch: 0,
-                    bearing: 0
-                    },
-                onChapterEnter: [
-                    {
-                      layer:"nearby-all",
-                      opacity:1
-                    },
-                    {
-                      layer:"china_basemap_gdp",
-                      opacity:0.8
-                    }
-                  ],
-                onChapterExit: [
-                  {
-                    layer:"nearby-all",
-                    opacity:0
-                  }
-                  ]
+          },
+          {
+            id: 'Map_11',
+            title: "Density of the distribution of schools in these 49 villages",
+            description:'',
+            location: {
+                center: [105, 37.9],
+                zoom: 3.61,
+                pitch: 0,
+                bearing: 0
                 },
-                {
-                  id: 'Map_7',
-                  title: "All the schools",
-                  description:'',
-                  location: {
-                      center: [105, 37.9],
-                      zoom: 3.61,
-                      pitch: 0,
-                      bearing: 0
-                      },
-                  onChapterEnter: [
-                      {
-                        layer:"nearby-school",
-                        opacity:1
-                      }
-                    ],
-                  onChapterExit: [
-                    {
-                      layer:"nearby-school",
-                      opacity:0
-                    }
-                    ]
-                  },
-                  {
-                    id: 'Map_8',
-                    title: "All the hospitals",
-                    description:'',
-                    location: {
-                        center: [105, 37.9],
-                        zoom: 3.61,
-                        pitch: 0,
-                        bearing: 0
-                        },
-                    onChapterEnter: [
-                        {
-                          layer:"nearby-hospital",
-                          opacity:1
-                        }
-                      ],
-                    onChapterExit: [
-                      {
-                        layer:"nearby-hospital",
-                        opacity:0
-                      }
-                      ]
-                    },
-                    {
-                      id: 'Map_7',
-                      title: "All the Parks",
-                      description:'',
-                      location: {
-                          center: [105, 37.9],
-                          zoom: 3.61,
-                          pitch: 0,
-                          bearing: 0
-                          },
-                      onChapterEnter: [
-                          {
-                            layer:"nearby-park",
-                            opacity:1
-                          }
-                        ],
-                      onChapterExit: [
-                        {
-                          layer:"nearby-park",
-                          opacity:0
-                        }
-                        ]
-                      },
-                      {
-                        id: 'Map_8',
-                        title: "Click Village Name to zoom in",
-                        description:'',
-                        location: {
-                            center: [105, 37.9],
-                            zoom: 3.61,
-                            pitch: 0,
-                            bearing: 0
-                            },
-                        onChapterEnter: [
-                            {
-                              layer:"2020_E_Village",
-                              opacity:1
-                            },
-                            {
-                              layer:"selected-villages",
-                              opacity:1
-                            },
-                            {
-                              layer:"china_village_satellite",
-                              opacity:1
-                            }
-
-                          ],
-                        onChapterExit: [
-
-                          ]
-                        },
-
-
-
+            onChapterEnter: [
+              {layer:"selected-villages-school",opacity:1},
+              {layer:"selected-villages-park",opacity:0},
+              ],
+            onChapterExit: [
+              {layer:"selected-villages-school",opacity:0},
+              ]
+          },
+          {
+            id: 'Map_12',
+            title: "Density of the distribution of parks in these 49 villages",
+            description:'',
+            location: {
+                center: [105, 37.9],
+                zoom: 3.61,
+                pitch: 0,
+                bearing: 0
+                },
+            onChapterEnter: [
+              {layer:"selected-villages-park",opacity:1},
+              {layer:"selected-villages-retail",opacity:0},
+              ],
+            onChapterExit: [
+              {layer:"selected-villages-park",opacity:0},
+              ]
+          },
+          {
+            id: 'Map_13',
+            title: "Density of the distribution of retails in these 49 villages",
+            description:'',
+            location: {
+                center: [105, 37.9],
+                zoom: 3.61,
+                pitch: 0,
+                bearing: 0
+                },
+            onChapterEnter: [
+              {layer:"selected-villages-retail",opacity:1},
+              {layer:"selected-villages-mobile",opacity:0},
+              ],
+            onChapterExit: [
+              {layer:"selected-villages-retail",opacity:0},
+              ]
+          },
+          {
+            id: 'Map_14',
+            title: "Density of the distribution of internet service stations in these 49 villages",
+            description:'',
+            location: {
+                center: [105, 37.9],
+                zoom: 3.61,
+                pitch: 0,
+                bearing: 0
+                },
+            onChapterEnter: [
+              {layer:"selected-villages-mobile",opacity:1},
+              ],
+            onChapterExit: [
+              {layer:"selected-villages-mobile",opacity:0},
+              ]
+          },
+          {
+            id: 'Map_15',
+            title: "Click Village Name to zoom in",
+            description:'',
+            location: {
+                center: [105, 37.9],
+                zoom: 3.61,
+                pitch: 0,
+                bearing: 0
+                },
+              onChapterEnter: [
+                {layer:"2020_E_Village",opacity:1},
+                {layer:"china_basemap_gdp",opacity:1},
+                // {layer:"selected-villages",opacity:1},
+                // {layer:"selected-nearby",opacity:1}
+              ],
+            onChapterExit: [
+                {layer:"2020_E_Village",opacity:0},
+                {layer:"china_basemap_gdp",opacity:0},
+                // {layer:"selected-villages",opacity:0},
+                // {layer:"selected-nearby",opacity:0}
+            ]
+            }
     ]
 }
